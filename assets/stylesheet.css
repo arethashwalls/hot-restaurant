@@ -8,7 +8,7 @@ ul#bottom-links li{
 }
 
 body {
-    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG0eBr04OmqP_9zMAUAyH__hlX2W70-jDHsB55jZWVd78S0DVB) no-repeat;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG0eBr04OmqP_9zMAUAyH__hlX2W70-jDHsB55jZWVd78S0DVB') no-repeat;
     background-size: cover;
 
 }
