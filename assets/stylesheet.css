@@ -1,0 +1,8 @@
+ul#bottom-links {
+    list-style-type: none;
+}
+
+ul#bottom-links li{
+    display: inline;
+    margin: 0.25em;
+}
