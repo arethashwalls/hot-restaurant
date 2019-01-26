@@ -34,7 +34,7 @@ var waitlistedTables = [{
 ];
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'FILENAME HERE'));
+    res.sendFile(path.join(__dirname, 'home.html'));
 });
 
 app.get('/tables', (req, res) => {
