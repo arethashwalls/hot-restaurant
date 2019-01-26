@@ -27,3 +27,33 @@ var waitlistedTables = [{
         id: "4"
     },
 ];
+
+
+$("#add-btn").on("click", function (event) {
+    event.preventDefault();
+    var newTable = {
+        name: $("#name").val().trim(),
+        number: $("#number").val().trim(),
+        email: $("#email").val().trim(),
+        id: $("#id").val().trim()
+    };
+
+    // Question: What does this code do??
+    $.post("/api/table", newTable)
+        .then(function (data) {
+            console.log(data);
+            alert("Reservation Added!");
+        });
+});
+
+app.post("/api/table", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newTable = req.body;
+
+    console.log(newTable.id);
+
+    reservedTables.push(newTable);
+
+    res.json(newTable);
+});
