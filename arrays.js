@@ -37,23 +37,38 @@ $("#add-btn").on("click", function (event) {
         email: $("#email").val().trim(),
         id: $("#id").val().trim()
     };
+    if (reservedTables.length < 5) {
+        $.post("/api/table", newTable)
+            .then(function (data) {
+                console.log(data);
+                alert("Reservation Added!");
+            });
+    } else {
+        $.post("/api/waitlist", newTable)
+            .then(function (data) {
+                console.log(data);
+                alert("Reservation Added!");
+            });
+    }
 
-    // Question: What does this code do??
-    $.post("/api/table", newTable)
-        .then(function (data) {
-            console.log(data);
-            alert("Reservation Added!");
-        });
 });
 
 app.post("/api/table", function (req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
     var newTable = req.body;
 
     console.log(newTable.id);
 
     reservedTables.push(newTable);
+
+    res.json(newTable);
+});
+
+app.post("/api/waitlist", function (req, res) {
+    var newTable = req.body;
+
+    console.log(newTable.id);
+
+    waitlistedTables.push(newTable);
 
     res.json(newTable);
 });
