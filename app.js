@@ -5,32 +5,32 @@ const PORT = process.env.PORT || 3000;
 
 // reserved tables
 var reservedTables = [{
-    name: "John",
-    number: "111-111-1111",
-    email: "aol@aol.com",
-    id: "1"
-},
-{
-    name: "Tessa",
-    number: "222-222-2222",
-    email: "gmail@gmail.com",
-    id: "2"
-},
+        name: "John",
+        number: "111-111-1111",
+        email: "aol@aol.com",
+        id: "1"
+    },
+    {
+        name: "Tessa",
+        number: "222-222-2222",
+        email: "gmail@gmail.com",
+        id: "2"
+    },
 ];
 
 // wait-listed tables
 var waitlistedTables = [{
-    name: "Greg",
-    number: "333-333-3333",
-    email: "aol@aol.com",
-    id: "3"
-},
-{
-    name: "Tessa",
-    number: "444-444-4444",
-    email: "gmail@gmail.com",
-    id: "4"
-},
+        name: "Greg",
+        number: "333-333-3333",
+        email: "aol@aol.com",
+        id: "3"
+    },
+    {
+        name: "Tessa",
+        number: "444-444-4444",
+        email: "gmail@gmail.com",
+        id: "4"
+    },
 ];
 
 // $("#add-btn").on("click", function (event) {
@@ -88,7 +88,7 @@ app.get('/tables', (req, res) => {
 });
 
 app.get('/reserve', (req, res) => {
-    res.sendFile(path.join(__dirname, 'FILENAME HERE'));
+    res.sendFile(path.join(__dirname, 'waitlist.html'));
 });
 
 app.get('/api/tables', (req, res) => {
@@ -101,4 +101,4 @@ app.get('/api/waitlist', (req, res) => {
 
 app.listen(PORT, () => {
     console.log("HotRestuarant is listening at Port " + PORT);
-  });
+});
