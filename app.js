@@ -33,32 +33,9 @@ var waitlistedTables = [{
     },
 ];
 
-// $("#add-btn").on("click", function (event) {
-//     event.preventDefault();
-//     var newTable = {
-//         name: $("#name").val().trim(),
-//         number: $("#number").val().trim(),
-//         email: $("#email").val().trim(),
-//         id: $("#id").val().trim()
-//     };
-//     if (reservedTables.length < 5) {
-//         $.post("/api/table", newTable)
-//             .then(function (data) {
-//                 console.log(data);
-//                 alert("Reservation Added!");
-//             });
-//     } else {
-//         $.post("/api/waitlist", newTable)
-//             .then(function (data) {
-//                 console.log(data);
-//                 alert("Reservation Added!");
-//             });
-//     }
-
-// });
-
 app.post("/api/table", function (req, res) {
     var newTable = req.body;
+    console.log(req.body)
 
     console.log(newTable.id);
 
@@ -91,7 +68,7 @@ app.get('/reserve', (req, res) => {
     res.sendFile(path.join(__dirname, 'waitlist.html'));
 });
 
-app.get('/api/tables', (req, res) => {
+app.get('/api/table', (req, res) => {
     return res.json(reservedTables);
 });
 
