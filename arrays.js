@@ -72,3 +72,7 @@ app.post("/api/waitlist", function (req, res) {
 
     res.json(newTable);
 });
+
+for (var i = 0; i < reservedTables.length; i++) {
+    $("#tabletext").append(`<li>${reservedTables[i].id}</li>`);
+}
