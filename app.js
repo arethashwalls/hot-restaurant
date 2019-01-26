@@ -33,6 +33,52 @@ var waitlistedTables = [{
 },
 ];
 
+// $("#add-btn").on("click", function (event) {
+//     event.preventDefault();
+//     var newTable = {
+//         name: $("#name").val().trim(),
+//         number: $("#number").val().trim(),
+//         email: $("#email").val().trim(),
+//         id: $("#id").val().trim()
+//     };
+//     if (reservedTables.length < 5) {
+//         $.post("/api/table", newTable)
+//             .then(function (data) {
+//                 console.log(data);
+//                 alert("Reservation Added!");
+//             });
+//     } else {
+//         $.post("/api/waitlist", newTable)
+//             .then(function (data) {
+//                 console.log(data);
+//                 alert("Reservation Added!");
+//             });
+//     }
+
+// });
+
+app.post("/api/table", function (req, res) {
+    var newTable = req.body;
+
+    console.log(newTable.id);
+
+    reservedTables.push(newTable);
+
+    res.json(newTable);
+});
+
+app.post("/api/waitlist", function (req, res) {
+    var newTable = req.body;
+
+    console.log(newTable.id);
+
+    waitlistedTables.push(newTable);
+
+    res.json(newTable);
+});
+
+
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'home.html'));
 });
@@ -53,6 +99,6 @@ app.get('/api/waitlist', (req, res) => {
     return res.json(waitlistedTables);
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, () => {
     console.log("HotRestuarant is listening at Port " + PORT);
   });
